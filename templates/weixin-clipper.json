@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "微信文章",
+  "behavior": "create",
+  "noteContentFormat": "![封面 | 500]({{image}})\n\n{{selectorHtml:.rich_media_content|remove_tags:(\".appmsg_card_context, .rich_media_area_extra, .qr_code_pc, .rich_media_tool, [id^=\"js_share_\"], [id^=\"js_sponsor_\"], [id^=\"js_ad_\"], [data-mark=\"recommend\"], [data-mark=\"ad\"], .powered-by, .appmsg\")|markdown}}",
+  "properties": [
+    {
+      "name": "category",
+      "value": "",
+      "type": "multitext"
+    },
+    {
+      "name": "title",
+      "value": "{{title}}",
+      "type": "text"
+    },
+    {
+      "name": "source",
+      "value": "{{url}}",
+      "type": "text"
+    },
+    {
+      "name": "author",
+      "value": "{{author}}",
+      "type": "multitext"
+    },
+    {
+      "name": "account",
+      "value": "{{selector:#js_name}}",
+      "type": "multitext"
+    },
+    {
+      "name": "created",
+      "value": "{{date}}",
+      "type": "date"
+    },
+    {
+      "name": "published",
+      "value": "{{selector:#publish_time}}",
+      "type": "date"
+    },
+    {
+      "name": "summary",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "name": "tags",
+      "value": "",
+      "type": "multitext"
+    }
+  ],
+  "triggers": [
+    "/^https:\\/\\/mp\\.weixin\\.qq\\.com\\/s(\\?__biz|\\/)/"
+  ],
+  "noteNameFormat": "{{title}}",
+  "path": "Clippings",
+  "context": "{{selectorHtml:.rich_media_content|remove_tags:(\".appmsg_card_context, .rich_media_area_extra, .qr_code_pc, .rich_media_tool, [id^=\"js_share_\"], [id^=\"js_sponsor_\"], [id^=\"js_ad_\"], [data-mark=\"recommend\"], [data-mark=\"ad\"], .powered-by, .appmsg\")|markdown|strip_md}}"
+}
